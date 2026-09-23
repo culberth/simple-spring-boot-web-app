@@ -8,12 +8,18 @@ A basic Spring Boot web application demonstrating a variety of HTML form control
 - Java 21
 - Maven 3.9+
 
-## Tech stack
+## Tech Stack
 
-- Spring Boot 4.1.1
-- Spring Web MVC
-- Thymeleaf
-- Bean Validation (`spring-boot-starter-validation`)
+| Technology | Purpose |
+| --- | --- |
+| Java 21 | Backend language |
+| Spring Boot 4.1.1 | Application configuration and executable JAR packaging |
+| Spring Web MVC | Controllers and request handling, via `spring-boot-starter-web` |
+| Embedded Apache Tomcat | HTTP server |
+| Thymeleaf | Server-rendered HTML templates, via `spring-boot-starter-thymeleaf` |
+| Jakarta Bean Validation | Server-side form validation, via `spring-boot-starter-validation` |
+| HTML and CSS | Form controls and page styling |
+| Maven | Dependency management and builds |
 
 ## Running the app
 
