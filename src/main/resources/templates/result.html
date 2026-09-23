@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Preferences</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="card">
+    <h1>Thanks, <span th:text="${preferencesForm.name}">Name</span>!</h1>
+    <p class="subtitle">Here's what you submitted:</p>
+
+    <table class="summary">
+        <tr>
+            <th>Satisfaction</th>
+            <td th:text="${preferencesForm.satisfaction} + ' / 100'">50 / 100</td>
+        </tr>
+        <tr>
+            <th>Favorite color</th>
+            <td th:text="${preferencesForm.favoriteColor}">blue</td>
+        </tr>
+        <tr>
+            <th>Subscription plan</th>
+            <td th:text="${preferencesForm.subscriptionPlan}">free</td>
+        </tr>
+        <tr>
+            <th>Newsletter</th>
+            <td th:text="${preferencesForm.newsletter} ? 'Yes' : 'No'">No</td>
+        </tr>
+        <tr>
+            <th>Dark mode</th>
+            <td th:text="${preferencesForm.darkMode} ? 'Yes' : 'No'">No</td>
+        </tr>
+    </table>
+
+    <a class="back-link" th:href="@{/}">&larr; Back to form</a>
+</div>
+</body>
+</html>

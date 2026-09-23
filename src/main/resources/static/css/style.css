@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 24px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 32px 40px;
+    width: 100%;
+    max-width: 480px;
+}
+
+h1 {
+    margin-top: 0;
+    color: #2d2d3a;
+}
+
+.subtitle {
+    color: #6b6b7b;
+    margin-bottom: 24px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #3a3a4a;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d4d4e0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fafafe;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: #764ba2;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: #764ba2;
+}
+
+.radio-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.radio-option input {
+    accent-color: #764ba2;
+}
+
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-field label {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.checkbox-field input {
+    accent-color: #764ba2;
+    width: 16px;
+    height: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #764ba2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #5f3d85;
+}
+
+.error {
+    color: #d64545;
+    font-size: 13px;
+    display: block;
+    margin-top: 4px;
+}
+
+table.summary {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+table.summary th,
+table.summary td {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid #eaeaf2;
+}
+
+table.summary th {
+    color: #6b6b7b;
+    font-weight: 600;
+    width: 40%;
+}
+
+.back-link {
+    color: #764ba2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
