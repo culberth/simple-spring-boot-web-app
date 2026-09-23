@@ -26,6 +26,10 @@ Then open [http://localhost:8080](http://localhost:8080) in your browser.
 By default the app listens on port `8080` (configurable via
 `server.port` in [`src/main/resources/application.properties`](src/main/resources/application.properties)).
 
+## Screenshot
+
+![Preferences form](docs/images/2026-09-22_21-28-00.png)
+
 ## Building a jar
 
 ```bash
