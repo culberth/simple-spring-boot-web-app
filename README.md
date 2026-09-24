@@ -1,7 +1,9 @@
 # simple-spring-boot-web-app
 
 A basic Spring Boot web application demonstrating a variety of HTML form controls
-(text box, slider, combo box, radio buttons, checkboxes) using Thymeleaf.
+(text box, slider, combo box, date picker, radio buttons, checkbox, textarea).
+The page submits to a JSON REST endpoint via the Fetch API and reflects the
+server's (validated) response back in place, without a full page reload.
 
 ## Requirements
 
@@ -27,9 +29,9 @@ A basic Spring Boot web application demonstrating a variety of HTML form control
 mvn spring-boot:run
 ```
 
-Then open [http://localhost:8080](http://localhost:8080) in your browser.
+Then open [http://localhost:8082](http://localhost:8082) in your browser.
 
-By default the app listens on port `8080` (configurable via
+By default the app listens on port `8082` (configurable via
 `server.port` in [`src/main/resources/application.properties`](src/main/resources/application.properties)).
 
 ## Screenshot
@@ -45,17 +47,22 @@ java -jar target/simple-spring-boot-web-app-0.0.1-SNAPSHOT.jar
 
 ## What it does
 
-The home page (`/`) renders a form bound to a `PreferencesForm` model with:
+The home page (`/`) is a Thymeleaf-served page with a form containing:
 
-- A text box for your name (required, validated with Bean Validation)
-- A range slider for a satisfaction score (0-100), with the current value
+- A text box for your name (required)
+- A combo box (`<select>`) to pick a favorite language
+- A date picker
+- A range slider for an enthusiasm score (0-100), with the current value
   updated live as you drag it
-- A combo box (`<select>`) to pick a favorite color
-- A set of radio buttons to pick a subscription plan
-- Two checkboxes (newsletter opt-in, dark mode)
+- A set of radio buttons to pick a theme preference
+- A checkbox to opt in to notifications
+- A textarea for freeform notes
 
-Submitting the form (`POST /submit`) validates the input and renders a
-summary page showing the values you selected.
+Submitting the form sends the values as JSON to `POST /api/demo` via the
+Fetch API. The server validates the payload with Jakarta Bean Validation
+and echoes it back; the page renders the response in the results panel
+without reloading. Client-side JavaScript ([`app.js`](src/main/resources/static/app.js))
+also keeps the slider's live percentage in sync and handles the reset button.
 
 ## Project structure
 
@@ -63,14 +70,16 @@ summary page showing the values you selected.
 src/main/java/com/example/demo/
 ├── DemoApplication.java              # Spring Boot entry point
 ├── controller/
-│   └── PreferencesController.java    # GET / and POST /submit handlers
+│   ├── PageController.java           # GET / — renders the Thymeleaf page
+│   └── DemoApiController.java        # POST /api/demo — validates and echoes the submission
 └── model/
-    └── PreferencesForm.java          # Form-backing bean
+    └── Submission.java               # Validated request/response record
 
 src/main/resources/
 ├── application.properties
-├── static/css/style.css
+├── static/
+│   ├── app.js                        # Form wiring, slider output, Fetch API submission
+│   └── styles.css
 └── templates/
-    ├── index.html                    # Form page
-    └── result.html                   # Submission summary page
+    └── index.html                    # Form + results page
 ```
