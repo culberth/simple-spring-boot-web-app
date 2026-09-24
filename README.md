@@ -36,7 +36,7 @@ By default the app listens on port `8082` (configurable via
 
 ## Screenshot
 
-![Preferences form](docs/images/2026-09-22_21-28-00.png)
+![Control room form with a submitted server response](docs/images/2026-09-23_21-26-30.png)
 
 ## Building a jar
 
